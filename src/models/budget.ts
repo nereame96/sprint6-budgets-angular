@@ -3,7 +3,7 @@ export interface Budget {
       nameClient : string;
       email : string;
       phone : string;
-      services : [];
+      budgetServices : []; //falta enlazarlo con la otra interface 
       totalPrice : number;
       date : Date;
 
