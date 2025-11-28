@@ -1,3 +1,14 @@
 <div>
-  
+  <div>
+    <button type="button" (click)="decrement(counterValuePages)">-</button>
+    <input type="number" id="counterPages" [value]='counterValuePages()' min="0">
+    <button type="button" (click)="increment(counterValuePages)">+</button>
+  </div>
+
+  <div>
+    <button type="button" (click)="decrement(counterValueLanguages)">-</button>
+    <input type="number" id="counterLanguages" [value]='counterValueLanguages()' min="0">
+    <button type="button" (click)="increment(counterValueLanguages)">+</button>
+  </div>
+
 </div>

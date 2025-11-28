@@ -6,6 +6,11 @@
   <input type="checkbox" [formControlName]="product().id"  [id]="product().id">
   <label [for]="product().id">Add</label><br>
 
+@if (product().id === '3' && isSelected() ) {
+  <app-panel
+    
 
+    />
+}
 
 </div>
