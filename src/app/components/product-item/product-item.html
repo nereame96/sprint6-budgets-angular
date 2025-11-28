@@ -1,0 +1,11 @@
+
+<div [formGroup] = "parentForm()">
+  <h1>{{product().nameProduct}}</h1>
+  <p>{{product().description}}</p>
+  <p>{{product().price}} eur</p>
+  <input type="checkbox" [formControlName]="product().id"  [id]="product().id">
+  <label [for]="product().id">Add</label><br>
+
+
+
+</div>

@@ -1,0 +1,17 @@
+<h1>Get the best quality</h1>
+
+<form [formGroup]="form">
+
+
+  @for (budgetProduct of budgetProducts(); track budgetProduct.id) {
+    <app-product-item
+    [product]="budgetProduct"
+    [parentForm]="form"
+
+    />
+
+  }
+
+</form>
+
+<p>Total budget: {{sumTotal()}} eur </p>
