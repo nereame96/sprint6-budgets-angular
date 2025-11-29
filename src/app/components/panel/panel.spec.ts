@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Panel } from './panel';
+import { PanelComponent } from './panel';
 
 describe('Panel', () => {
-  let component: Panel;
-  let fixture: ComponentFixture<Panel>;
+  let component: PanelComponent;
+  let fixture: ComponentFixture<PanelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Panel]
+      imports: [PanelComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Panel);
+    fixture = TestBed.createComponent(PanelComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
@@ -21,3 +21,5 @@ describe('Panel', () => {
     expect(component).toBeTruthy();
   });
 });
+
+
