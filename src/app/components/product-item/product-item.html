@@ -8,7 +8,7 @@
 
 @if (product().id === '3' && isSelected() ) {
   <app-panel
-    
+    [grandparentForm]="parentForm()"
 
     />
 }

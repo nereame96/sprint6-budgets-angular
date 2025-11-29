@@ -1,34 +1,10 @@
 import { ProductItemComponent } from './../product-item/product-item';
 import { budgetProduct } from "./../../../models/budget-product"
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ReactiveFormsModule, FormControl, FormGroup } from "@angular/forms";
-
-
-export const budgetProducts : budgetProduct[] = [
-
-  { id : '1',
-    nameProduct : 'seo',
-    description : 'Develope a complete responsive webside',
-    price : 300,
-    selected : false
-  },
-
-  { id : '2',
-    nameProduct : 'ads',
-    description : 'Develope a complete responsive webside',
-    price : 400,
-    selected : false
-  },
-
-  { id : '3',
-    nameProduct : 'web',
-    description : 'Develope a complete responsive webside',
-    price : 500,
-    selected : false
-  }
-
-]
+import { budgetProducts } from "./../../data/budget-products.data";
+import { TotalBudget } from '../../services/total-budget';
 
 
 @Component({
@@ -41,35 +17,40 @@ export const budgetProducts : budgetProduct[] = [
 
 export class Budget {
 
+  private totalBudgetService = inject(TotalBudget)
+
   budgetProducts = signal<budgetProduct[]>(budgetProducts);
 
   form = new FormGroup ({
     '1' : new FormControl(false),
     '2' : new FormControl(false),
     '3' : new FormControl(false),
+    'pages' : new FormControl(0),
+    'languages' : new FormControl(0)
 
   })
 
   formValues = toSignal(this.form.valueChanges, {
-    initialValue : { '1' : false, '2' : false, '3' : false }
+    initialValue : this.form.value
   })
 
-  value =  this.formValues()
-
-
-
   sumTotal = computed(() => {
-    const values = this.formValues()
-    let total = 0
 
-    for (const product of this.budgetProducts()) {
-      const productValue = values[product.id as '1' | '2' | '3'];
-      if (productValue) {
-        total += product.price
-      }
-    }
-    return total
-  });
+    const values = this.formValues()
+
+    const selectedProducts = Object.keys(values)
+      .filter(key => [ '1', '2', '3' ].includes(key) && values[key as keyof typeof values] === true);
+
+    const pages = values.pages || 0
+    const languages = values.languages || 0
+
+    return this.totalBudgetService.calculateTotalBudget( selectedProducts, pages, languages)
+  })
+
+
+
+
+
 
 
 }

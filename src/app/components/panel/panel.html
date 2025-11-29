@@ -1,14 +1,16 @@
-<div>
+<form [formGroup] = "grandparentForm()">
   <div>
-    <button type="button" (click)="decrement(counterValuePages)">-</button>
-    <input type="number" id="counterPages" [value]='counterValuePages()' min="0">
-    <button type="button" (click)="increment(counterValuePages)">+</button>
+    <label for="counterPages">Number of pages</label>
+    <button type="button" (click)="decrement('pages')">-</button>
+    <input type="number" id="counterPages" formControlName= "pages">
+    <button type="button" (click)="increment('pages')">+</button>
   </div>
 
   <div>
-    <button type="button" (click)="decrement(counterValueLanguages)">-</button>
-    <input type="number" id="counterLanguages" [value]='counterValueLanguages()' min="0">
-    <button type="button" (click)="increment(counterValueLanguages)">+</button>
+    <label for="counterLanguages">Number of languages</label>
+    <button type="button" (click)="decrement('languages')">-</button>
+    <input type="number" id="counterLanguages" formControlName = "languages">
+    <button type="button" (click)="increment('languages')">+</button>
   </div>
 
-</div>
+</form>
