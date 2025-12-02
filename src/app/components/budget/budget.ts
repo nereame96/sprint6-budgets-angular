@@ -15,7 +15,7 @@ import { TotalBudget } from '../../services/total-budget';
 })
 
 
-export class Budget {
+export class BudgetComponent {
 
   private totalBudgetService = inject(TotalBudget)
 

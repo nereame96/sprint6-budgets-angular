@@ -1,17 +1,26 @@
-<h1>Get the best quality</h1>
 
-<form [formGroup]="form">
+<div class="container text-center">
+
+    <h1 class="rounded ">Get the best quality</h1>
 
 
-  @for (budgetProduct of budgetProducts(); track budgetProduct.id) {
-    <app-product-item
-    [product]="budgetProduct"
-    [parentForm]="form"
+  <form [formGroup]="form">
 
-    />
+    <div class="d-flex text-center flex-column gap-3">
 
-  }
+      @for (budgetProduct of budgetProducts(); track budgetProduct.id) {
+        <app-product-item
+        [product]="budgetProduct"
+        [parentForm]="form"
 
-</form>
+        />
 
-<p>Total budget: {{sumTotal()}} eur </p>
+      }
+
+    </div>
+
+  </form>
+
+  <p>Total budget: {{sumTotal()}} € </p>
+
+</div>
