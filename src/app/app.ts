@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from "./home/home";
 import { BudgetComponent } from "./components/budget/budget";
 
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, HomeComponent, BudgetComponent],

@@ -13,20 +13,20 @@ export class PanelComponent {
 
   grandparentForm = input.required<FormGroup>()
 
-  counterValuePages = signal(0)
-  counterValueLanguages = signal(0)
+  counterValuePages = signal(1)
+  counterValueLanguages = signal(1)
 
   increment(controlName : string) {
     const control = this.grandparentForm().get(controlName)
-    const currentValue = control?.value || 0
+    const currentValue = control?.value || 1
     control?.setValue(currentValue + 1)
 
   }
   decrement(controlName : string) {
     const control = this.grandparentForm().get(controlName)
-    const currentValue = control?.value || 0
+    const currentValue = control?.value || 1
 
-    if (currentValue > 0) {
+    if (currentValue > 1) {
       control?.setValue(currentValue - 1)
 
     }

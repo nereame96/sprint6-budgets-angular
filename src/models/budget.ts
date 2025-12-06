@@ -1,9 +1,13 @@
+import { budgetProduct } from "./budget-product";
+
 export interface Budget {
       id : number;
       nameClient : string;
       email : string;
       phone : string;
-      budgetServices : []; //falta enlazarlo con la otra interface 
+      budgetServices : budgetProduct[];
+      pagesQty : number;
+      languagesQty : number;
       totalPrice : number;
       date : Date;
 

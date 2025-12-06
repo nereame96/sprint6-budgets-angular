@@ -60,13 +60,13 @@ describe('Panel', () => {
 
   })
 
-  it ('should not decrement if the control value is 0', () => {
-    mockForm.patchValue({pages: 0})
+  it ('should not decrement if the control value is 1', () => {
+    mockForm.patchValue({pages: 1})
 
     component.decrement('pages')
     fixture.detectChanges()
 
-    expect(mockForm.get('pages')?.value).toBe(0)
+    expect(mockForm.get('pages')?.value).toBe(1)
 
 
   })

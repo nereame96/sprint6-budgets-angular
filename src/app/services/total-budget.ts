@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { budgetProducts } from "./../data/budget-products.data";
+import { Budget } from '../../models/budget';
 
 @Injectable({
   providedIn: 'root',
@@ -7,6 +8,10 @@ import { budgetProducts } from "./../data/budget-products.data";
 export class TotalBudget {
 
   private readonly extraPriceWeb = 30;
+
+  budgetList = signal<Budget[]>([])
+
+
 
   getProductPrice(productId: string) : number {
 
@@ -32,8 +37,12 @@ export class TotalBudget {
     if ( selectedProductIds.includes('3')) {  // 3 => web
       total += this.calculateExtraWebCost(pages, languages)
     }
-    
+
     return total
+  }
+
+  saveBudget(budget: Budget): void {
+    this.budgetList.update(list => [...list, budget])
   }
 
 }
