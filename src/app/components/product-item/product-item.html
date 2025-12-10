@@ -1,18 +1,24 @@
 
-<div [formGroup] = "parentForm()" class="container text-center shadow p-3 mb-5 bg-white rounded">
+<div [formGroup] = "parentForm()" class="container shadow p-3  mb-5 bg-white rounded  ">
 
-  <div class="d-flex text-center gap-3">
+  <div class="d-flex flex-row justify-content-around align-items-center  gap-3">
 
 
 
-    <div class="d-flex flex-column gap-3">
+    <div class="d-flex flex-column gap-3 ps-3">
       <h3>{{product().nameProduct}}</h3>
       <p data-testid="pDescription">{{product().description}}</p>
 
     </div>
-    <p data-testid="pPrice">{{product().price}} €</p>
-    <input type="checkbox" [formControlName]="product().id"  [id]="product().id">
-    <label [for]="product().id">Add</label><br>
+
+    <p class="fs-2 fw-bold " data-testid="pPrice">{{product().price}} €</p>
+
+    <div >
+
+      <input class="pe-2" type="checkbox" [formControlName]="product().id"  [id]="product().id">
+      <label [for]="product().id">Add</label><br>
+
+    </div>
 
     @if (product().id === '3' && isSelected() ) {
       <app-panel

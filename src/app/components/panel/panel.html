@@ -13,9 +13,12 @@
 
 
     <label for="counterPages">Number of pages</label>
-    <button type="button" (click)="decrement('pages')">-</button>
-    <input type="number" id="counterPages" formControlName= "pages">
-    <button type="button" (click)="increment('pages')">+</button>
+        <div class="input-group">
+          <button type="button" class="btn btn-outline-primary btn-sm" (click)="decrement('pages')">-</button>
+          <input type="number" class="form-control border-primary " id="counterPages" formControlName= "pages">
+          <button type="button" class="btn btn-outline-primary btn-sm" (click)="increment('pages')">+</button>
+        </div>
+
   </div>
 
 
@@ -30,9 +33,13 @@
        </button>
 
     <label for="counterLanguages">Number of languages</label>
-    <button type="button" (click)="decrement('languages')">-</button>
-    <input type="number" id="counterLanguages" formControlName = "languages">
-    <button type="button" (click)="increment('languages')">+</button>
+
+    <div class="input-group" >
+      <button type="button" class="btn btn-outline-primary btn-sm" (click)="decrement('languages')">-</button>
+      <input type="number" class="form-control border-primary "  id="counterLanguages" formControlName = "languages">
+      <button type="button" class="btn btn-outline-primary btn-sm" (click)="increment('languages')">+</button>
+    </div>
+
   </div>
 
 

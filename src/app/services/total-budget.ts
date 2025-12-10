@@ -9,7 +9,66 @@ export class TotalBudget {
 
   private readonly extraPriceWeb = 30;
 
-  budgetList = signal<Budget[]>([])
+  budgetList = signal<Budget[]>([{
+        id : 1,
+        nameClient : 'Paula',
+        email : 'paula@gmail.com',
+        phone : '123456789',
+        budgetServices : [{
+
+                id : '1',
+                  nameProduct : 'Seo',
+                  description : 'Develope a complete responsive webside',
+                  price : 300,
+                  selected : true
+        }],
+        pagesQty : 1,
+        languagesQty : 1,
+        totalPrice : 300,
+        date : new Date('2025-01-15T14:00:00Z'),
+
+  },
+
+  {
+        id : 2,
+        nameClient : 'Jordi',
+        email : 'jordi@gmail.com',
+        phone : '987654321',
+        budgetServices : [{
+
+                id : '2',
+                  nameProduct : 'Ads',
+                  description : 'Develope a complete responsive webside',
+                  price : 400,
+                  selected : true
+        }],
+        pagesQty : 1,
+        languagesQty : 1,
+        totalPrice : 400,
+        date : new Date('2025-07-01T14:00:00Z'),
+  },
+
+  {
+        id : 3,
+        nameClient : 'Carme',
+        email : 'carme@gmail.com',
+        phone : '777654321',
+        budgetServices : [{
+
+                id : '3',
+                  nameProduct : 'Web',
+                  description : 'Develope a complete responsive webside',
+                  price : 530,
+                  selected : true
+        }],
+        pagesQty : 1,
+        languagesQty : 1,
+        totalPrice : 530,
+        date : new Date('2025-11-22T14:00:00Z'),
+  },
+
+
+])
 
 
 

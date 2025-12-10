@@ -6,11 +6,12 @@ import { ReactiveFormsModule, FormControl, FormGroup, FormBuilder, Validators } 
 import { budgetProducts } from "./../../data/budget-products.data";
 import { TotalBudget } from '../../services/total-budget';
 import { Budget } from '../../../models/budget';
+import { BudgetsListComponent } from '../budgets-list/budgets-list';
 
 
 @Component({
   selector: 'app-budget',
-  imports: [ReactiveFormsModule, ProductItemComponent],
+  imports: [ReactiveFormsModule, ProductItemComponent, BudgetsListComponent ],
   templateUrl: './budget.html',
   styleUrl: './budget.scss',
 })
@@ -116,7 +117,9 @@ export class BudgetComponent {
 
       }
 
-      this.budgetList.update(list => [...list, newBudget])
+      // this.budgetList.update(list => [...list, newBudget])
+
+      this.totalBudgetService.saveBudget(newBudget)
 
       this.form.reset({
         '1': false,
@@ -129,7 +132,7 @@ export class BudgetComponent {
       this.clientForm.reset()
 
       console.log(newBudget)
-      console.log(this.budgetList())
+      console.log(this.totalBudgetService.budgetList())
     }
 
 

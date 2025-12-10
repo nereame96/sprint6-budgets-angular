@@ -1,0 +1,38 @@
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Name" >
+  <button type="button" class="btn btn-outline-primary">@</button>
+
+  </div>
+
+<button type="button" class="btn btn-outline-primary btn-sm" (click)="setSortByDate()">Date</button>
+<button type="button" class="btn btn-outline-primary btn-sm" (click)="setSortByPrice()">Price</button>
+<button type="button" class="btn btn-outline-primary btn-sm " (click)="setSortByName()">Name</button>
+
+
+
+@for (budget of sortedBudgets(); track budget.id) {
+    <div class="container shadow p-3  mb-5 bg-white rounded">
+        <div class="d-flex flex-row justify-content-around align-items-center  gap-3">
+        <h4>{{ budget.nameClient }}</h4>
+      <p>{{ budget.email}}</p>
+      <p>{{ budget.phone}}</p>
+
+    <p>Contracted services:</p>
+    <ul>
+      @for (product of budget.budgetServices; track product.id ) {
+
+        @if (product.nameProduct === 'Web') {
+          <li>{{product.nameProduct}} (pages: {{budget.pagesQty}}, languages: {{budget.languagesQty}})</li>
+        } @else {
+          <li>{{product.nameProduct}}</li>
+
+        }
+      }
+    </ul>
+
+    <p><strong>Total: {{ budget.totalPrice }}€</strong></p>
+    <p><small>{{ budget.date | date: 'dd/MM/yyyy' }}</small></p>
+  </div>
+</div>
+  }
+
