@@ -1,6 +1,8 @@
 <div class="input-group">
-  <input type="text" class="form-control" placeholder="Name" >
-  <button type="button" class="btn btn-outline-primary">@</button>
+  <input type="text" class="form-control" placeholder="Name" (input)="setSearchNameInput($event)">
+  <span class="input-group-text">
+    <i class="bi bi-search"></i>
+  </span>
 
   </div>
 
@@ -11,6 +13,8 @@
 
 
 @for (budget of sortedBudgets(); track budget.id) {
+
+
     <div class="container shadow p-3  mb-5 bg-white rounded">
         <div class="d-flex flex-row justify-content-around align-items-center  gap-3">
         <h4>{{ budget.nameClient }}</h4>
@@ -20,6 +24,7 @@
     <p>Contracted services:</p>
     <ul>
       @for (product of budget.budgetServices; track product.id ) {
+
 
         @if (product.nameProduct === 'Web') {
           <li>{{product.nameProduct}} (pages: {{budget.pagesQty}}, languages: {{budget.languagesQty}})</li>
@@ -34,5 +39,11 @@
     <p><small>{{ budget.date | date: 'dd/MM/yyyy' }}</small></p>
   </div>
 </div>
+  }
+
+  @empty {
+    @if (searchNameInput()){
+      <p class="alert alert-warning"> No budgets found for"{{ searchNameInput() }}".</p>
+    }
   }
 

@@ -24,7 +24,21 @@ export class BudgetsListComponent {
   sortedBudgets = computed(() => {
 
     const budgetArray = this.budgets()
+
     const sort = this.sortBy()
+
+    const nameInput = this.searchNameInput()
+
+
+    if (nameInput) {
+
+    const filteredBudgets = budgetArray.filter(budget => {
+      return budget.nameClient.toLocaleLowerCase().includes(nameInput.toLocaleLowerCase())
+    });
+
+    return filteredBudgets
+     }
+
 
     switch (sort) {
       case 'date':
@@ -52,18 +66,10 @@ setSortByName() {
 
 }
 
-setSearchNameInput(){
-  this.searchNameInput.set(input)
+setSearchNameInput(event: Event){
+  const input = event.target as HTMLInputElement
+  this.searchNameInput.set(input.value)
 }
-
-filterName = computed(() => {
-
-  const budgetArray = this.budgets()
-
-  return budgetArray.filter()
-})
-
-
 
 
 
