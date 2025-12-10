@@ -1,5 +1,6 @@
 
 import { Component, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 
 
@@ -7,7 +8,7 @@ import { Component, signal } from '@angular/core';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
