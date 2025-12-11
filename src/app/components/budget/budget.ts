@@ -1,12 +1,13 @@
 import { ProductItemComponent } from './../product-item/product-item';
 import { budgetProduct } from "./../../../models/budget-product"
-import { Component, signal, computed, inject } from '@angular/core';
+import { Component, signal, computed, inject, effect } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ReactiveFormsModule, FormControl, FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { ReactiveFormsModule, FormControl, FormGroup, FormBuilder, Validators, Form } from "@angular/forms";
 import { budgetProducts } from "./../../data/budget-products.data";
 import { TotalBudget } from '../../services/total-budget';
 import { Budget } from '../../../models/budget';
 import { BudgetsListComponent } from '../budgets-list/budgets-list';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -20,17 +21,20 @@ import { BudgetsListComponent } from '../budgets-list/budgets-list';
 export class BudgetComponent {
 
   private totalBudgetService = inject(TotalBudget)
+  private fb = inject(FormBuilder)
+  private route = inject(ActivatedRoute)
+  private router = inject(Router)
 
   budgetProducts = signal<budgetProduct[]>(budgetProducts);
 
   budgetList = signal<Budget[]>([])
 
-  private fb = inject(FormBuilder)
 
   message = signal('')
 
   printMessage(text: string){
     this.message.set(text)
+
   }
 
   form = new FormGroup ({
@@ -45,6 +49,46 @@ export class BudgetComponent {
   formValues = toSignal(this.form.valueChanges, {
     initialValue : this.form.value
   })
+
+  constructor() {
+  effect(() => {
+    const values = this.formValues()
+
+    const queryParams = {
+      seo: values['1'],
+      ads: values['2'],
+      web: values['3'],
+      pages: values.pages,
+      languages: values.languages
+    }
+
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: queryParams,
+      queryParamsHandling: 'replace'
+    })
+
+
+  })
+
+}
+
+ngOnInit()  {
+
+      const params = this.route.snapshot.queryParams
+
+      if (Object.keys(params).length > 0) {
+          this.form.patchValue( {
+          '1': params['seo'] === 'true',
+          '2': params['ads'] === 'true',
+          '3': params['web'] === 'true',
+          pages: parseInt(params['pages'] ) || 1,
+          languages: parseInt(params['languages'] ) || 1,
+      });
+    }
+}
+
+
 
   selectedProducts = computed(() => {
      const values = this.formValues()
