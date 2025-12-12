@@ -16,7 +16,7 @@ export class TotalBudget {
         phone : '123456789',
         budgetServices : [{
 
-                id : '1',
+                  id : '1',
                   nameProduct : 'Seo',
                   description : 'Develope a complete responsive webside',
                   price : 300,
@@ -36,7 +36,7 @@ export class TotalBudget {
         phone : '987654321',
         budgetServices : [{
 
-                id : '2',
+                  id : '2',
                   nameProduct : 'Ads',
                   description : 'Develope a complete responsive webside',
                   price : 400,

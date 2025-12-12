@@ -68,5 +68,16 @@ describe('ProductItem', () => {
     expect(pPrice.textContent).toBe('300 €')
   })
 
+  it('should return true when product is selected in form', () => {
+    mockForm.patchValue({'1': true})
+    expect(component.isSelected()).toBe(true)
+
+  })
+
+  it('should return false when the product is not selected', () => {
+    mockForm.patchValue({'1': false})
+    expect(component.isSelected()).toBe(false)
+  })
+
 
 });

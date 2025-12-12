@@ -6,7 +6,7 @@ import { BudgetComponent } from "./components/budget/budget";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HomeComponent, BudgetComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

@@ -1,49 +1,64 @@
-<div class="input-group">
-  <input type="text" class="form-control" placeholder="Name" (input)="setSearchNameInput($event)">
-  <span class="input-group-text">
-    <i class="bi bi-search"></i>
-  </span>
+<div class="d-flex flex-column gap-3 mb-4">
 
-  </div>
+    <div>
+        <h4 class="mb-0">Current budgets:</h4>
+    </div>
 
-<button type="button" class="btn btn-outline-primary btn-sm" (click)="setSortByDate()">Date</button>
-<button type="button" class="btn btn-outline-primary btn-sm" (click)="setSortByPrice()">Price</button>
-<button type="button" class="btn btn-outline-primary btn-sm " (click)="setSortByName()">Name</button>
+    <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-2 ms-lg-auto w-100 w-lg-75" style="max-width: 600px;">
 
+        <div class="input-group flex-grow-1">
+            <input type="text" class="form-control" placeholder="Name" (input)="setSearchNameInput($event)">
+            <span class="input-group-text">
+                <i class="bi bi-search"></i>
+            </span>
+        </div>
+
+        <div class="d-flex justify-content-between gap-2 flex-shrink-0">
+            <button type="button" class="btn btn-outline-primary btn-sm w-100" (click)="setSortByDate()">Date</button>
+            <button type="button" class="btn btn-outline-primary btn-sm w-100" (click)="setSortByPrice()">Price</button>
+            <button type="button" class="btn btn-outline-primary btn-sm w-100" (click)="setSortByName()">Name</button>
+        </div>
+
+    </div>
+</div>
 
 
 @for (budget of sortedBudgets(); track budget.id) {
 
+    <div class="container shadow p-3 my-5 bg-white rounded">
+        <div class="d-flex flex-column flex-lg-row justify-content-around align-items-start gap-3">
 
-    <div class="container shadow p-3  mb-5 bg-white rounded">
-        <div class="d-flex flex-row justify-content-around align-items-center  gap-3">
-        <h4>{{ budget.nameClient }}</h4>
-      <p>{{ budget.email}}</p>
-      <p>{{ budget.phone}}</p>
+            <div class="d-flex flex-column w-100 w-lg-auto">
+                <h3>{{ budget.nameClient }}</h3>
+                <p class="mb-1">{{ budget.email}}</p>
+                <p class="mb-1">{{ budget.phone}}</p>
+                <p class="mb-0"><small>{{ budget.date | date: 'dd/MM/yyyy' }}</small></p>
+            </div>
 
-    <p>Contracted services:</p>
-    <ul>
-      @for (product of budget.budgetServices; track product.id ) {
+            <div class="d-flex flex-column w-100 w-lg-auto  pt-3 pt-lg-0">
+                <p>Contracted services:</p>
+                <ul>
+                    @for (product of budget.budgetServices; track product.id ) {
+                        @if (product.nameProduct === 'Web') {
+                            <li>{{product.nameProduct}} (pages: {{budget.pagesQty}}, languages: {{budget.languagesQty}})</li>
+                        } @else {
+                            <li>{{product.nameProduct}}</li>
+                        }
+                    }
+                </ul>
+            </div>
 
+            <div class="d-flex flex-row justify-content-between align-items-center w-100 w-lg-auto  pt-3 pt-lg-0">
+                <p class="mb-0">Total:</p>
+                <p class="fs-2 fw-bold m-0"> {{ budget.totalPrice }}€</p>
+            </div>
 
-        @if (product.nameProduct === 'Web') {
-          <li>{{product.nameProduct}} (pages: {{budget.pagesQty}}, languages: {{budget.languagesQty}})</li>
-        } @else {
-          <li>{{product.nameProduct}}</li>
+        </div>
+    </div>
+}
 
-        }
-      }
-    </ul>
-
-    <p><strong>Total: {{ budget.totalPrice }}€</strong></p>
-    <p><small>{{ budget.date | date: 'dd/MM/yyyy' }}</small></p>
-  </div>
-</div>
-  }
-
-  @empty {
+@empty {
     @if (searchNameInput()){
-      <p class="alert alert-warning"> No budgets found for"{{ searchNameInput() }}".</p>
+        <p class="alert alert-warning"> No budgets found for"{{ searchNameInput() }}".</p>
     }
-  }
-
+}

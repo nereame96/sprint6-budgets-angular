@@ -1,120 +1,122 @@
-<div class="container mx-auto w-50 p-4  mt-4">
-
-  <div class="text-center mb-4">
-    <h1 class="rounded">Get the best quality</h1>
-  </div>
-
-
-  <form [formGroup]="form">
-    <div class="d-flex  flex-column gap-3 ">
-      @for (budgetProduct of budgetProducts(); track budgetProduct.id) {
-        <app-product-item
-          [product]="budgetProduct"
-          [parentForm]="form"
-        />
-      }
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-10 col-lg-9 col-xl-8 mx-auto p-4 mt-4">
+    <div class="text-center mb-4">
+        <h1 class="rounded bg-primary text-white py-2 px-4 d-inline-block shadow-sm">Get the best quality</h1>
     </div>
-  </form>
 
 
-  <div class="my-4 pt-3 ">
-    <h3 class="text-end fs-4 fw-bolder ">Total budget: {{ sumTotal() }}€</h3>
-  </div>
-
-  @if (message()) {
-  <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    {{ message() }}
-    <button type="button" class="btn-close" (click)="printMessage('')"></button>
-  </div>
-}
-
-
-  <div class="mt-5">
-    <h4>Client Information</h4>
-
-    <form autocomplete="off" [formGroup]="clientForm" (ngSubmit)="saveBudget()">
-      <div class="mb-3 row">
-
-        <div class="col-sm-4">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Name"
-            formControlName="nameClient"
-          >
-          @if (nameClient?.hasError('required') && nameClient?.touched) {
-            <span class="form-text text-danger">
-              Please enter a valid name
-            </span>
-          }
-          @if (nameClient?.hasError('pattern') && nameClient?.touched) {
-            <span class="form-text text-danger">
-              Please enter a valid name
-            </span>
-          }
-          @if (nameClient?.hasError('minlength') && nameClient?.touched) {
-            <span class="form-text text-danger">
-              Name must have 2 or more characters
-            </span>
-          }
+    <form [formGroup]="form">
+        <div class="d-flex flex-column gap-3 ">
+            @for (budgetProduct of budgetProducts(); track budgetProduct.id) {
+                <app-product-item
+                    [product]="budgetProduct"
+                    [parentForm]="form"
+                />
+            }
         </div>
-
-        <div class="col-sm-4">
-          <input
-            type="email"
-            class="form-control"
-            placeholder="Email"
-            formControlName="email"
-          >
-          @if (email?.hasError('required') && email?.touched) {
-            <span class="form-text text-danger">
-              Please enter an email address
-            </span>
-          }
-          @if (email?.hasError('email') && email?.touched) {
-            <span class="form-text text-danger">
-              Please enter a valid email address
-            </span>
-          }
-        </div>
-
-        <div class="col-sm-4">
-          <input
-            type="tel"
-            class="form-control"
-            placeholder="Phone"
-            formControlName="phone"
-          >
-          @if (phone?.hasError('required') && phone?.touched) {
-            <span class="form-text text-danger">
-              Please enter a phone number
-            </span>
-          }
-          @if (phone?.hasError('minlength') && phone?.touched) {
-            <span class="form-text text-danger">
-              Phone number must have min. 9 digits
-            </span>
-          }
-          @if (phone?.hasError('maxlength') && phone?.touched) {
-            <span class="form-text text-danger">
-              Phone number must have max. 15 digits
-            </span>
-          }
-        </div>
-
-      </div>
-
-      <button
-        type="submit"
-        class="btn btn-md btn-primary"
-        [disabled]="clientForm.invalid">
-        Save Budget
-      </button>
     </form>
+
+
+    <div class="my-4 pt-3 ">
+        <h3 class="text-end fs-4 fw-bolder ">Total budget: {{ sumTotal() }}€</h3>
+    </div>
+
+    @if (message()) {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ message() }}
+            <button type="button" class="btn-close" (click)="printMessage('')"></button>
+        </div>
+    }
+
+
+    <div class="my-5">
+        <h4 class="mb-5">Client Information</h4>
+
+        <form autocomplete="off" [formGroup]="clientForm" (ngSubmit)="saveBudget()">
+
+            <div class="row mb-3 g-3">
+                <div class="col-12 col-md-4">
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Name"
+                        formControlName="nameClient"
+                    >
+                    @if (nameClient?.hasError('required') && nameClient?.touched) {
+                        <span class="form-text text-danger">
+                            Please enter a valid name
+                        </span>
+                    }
+                    @if (nameClient?.hasError('pattern') && nameClient?.touched) {
+                        <span class="form-text text-danger">
+                            Please enter a valid name
+                        </span>
+                    }
+                    @if (nameClient?.hasError('minlength') && nameClient?.touched) {
+                        <span class="form-text text-danger">
+                            Name must have 2 or more characters
+                        </span>
+                    }
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <input
+                        type="email"
+                        class="form-control"
+                        placeholder="Email"
+                        formControlName="email"
+                    >
+                    @if (email?.hasError('required') && email?.touched) {
+                        <span class="form-text text-danger">
+                            Please enter an email address
+                        </span>
+                    }
+                    @if (email?.hasError('email') && email?.touched) {
+                        <span class="form-text text-danger">
+                            Please enter a valid email address
+                        </span>
+                    }
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <input
+                        type="tel"
+                        class="form-control"
+                        placeholder="Phone"
+                        formControlName="phone"
+                    >
+                    @if (phone?.hasError('required') && phone?.touched) {
+                        <span class="form-text text-danger">
+                            Please enter a phone number
+                        </span>
+                    }
+                    @if (phone?.hasError('minlength') && phone?.touched) {
+                        <span class="form-text text-danger">
+                            Phone number must have min. 9 digits
+                        </span>
+                    }
+                    @if (phone?.hasError('maxlength') && phone?.touched) {
+                        <span class="form-text text-danger">
+                            Phone number must have max. 15 digits
+                        </span>
+                    }
+                </div>
+
+            </div>
+
+            <button
+                type="submit"
+                class="btn btn-md btn-primary mt-2"
+                [disabled]="clientForm.invalid">
+                Save Budget
+            </button>
+        </form>
+    </div>
+
+
+    <app-budgets-list />
+
+    </div>
   </div>
-
-
-
-  <app-budgets-list />
-
 </div>

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BudgetsList } from './budgets-list';
+import { BudgetsListComponent } from './budgets-list';
 
 describe('BudgetsList', () => {
-  let component: BudgetsList;
-  let fixture: ComponentFixture<BudgetsList>;
+  let component: BudgetsListComponent;
+  let fixture: ComponentFixture<BudgetsListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BudgetsList]
+      imports: [BudgetsListComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BudgetsList);
+    fixture = TestBed.createComponent(BudgetsListComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
@@ -20,4 +20,8 @@ describe('BudgetsList', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('it should start with the 3 budgets of the budget list', () => {
+    expect(component.budgets().length).toBe(3)
+  })
 });
