@@ -1,6 +1,6 @@
 
 
-# **README: Angular Budget Management System**
+# **Sprint 6: Angular Budget Management System**
 
 A modern web application for creating, managing, and sharing service quotes built with Angular 21 and the latest framework features including Signals and Standalone Components.
 
@@ -121,27 +121,27 @@ ng test
 src/  
 ├── app/  
 │   ├── components/  
-│   │   ├── budget/              *\# Main budget creation component*  
-│   │   │   ├── budget.ts        *\# Component logic with Signals*  
-│   │   │   ├── budget.html      *\# Template with Reactive Forms*  
-│   │   │   ├── budget.scss      *\# Component styles*  
-│   │   │   └── budget.spec.ts   *\# Unit tests*  
-│   │   ├── budgets-list/        *\# Saved quotes list with sorting/filtering*  
-│   │   ├── panel/               *\# Pages and languages selector*  
-│   │   └── product-item/        *\# Individual service card*  
-│   ├── home/                    *\# Welcome page component*  
+│   │   ├── budget/              # Main budget creation component*  
+│   │   │   ├── budget.ts        # Component logic with Signals*  
+│   │   │   ├── budget.html      # Template with Reactive Forms*  
+│   │   │   ├── budget.scss      # Component styles*  
+│   │   │   └── budget.spec.ts   # Unit tests*  
+│   │   ├── budgets-list/        # Saved quotes list with sorting/filtering*  
+│   │   ├── panel/               # Pages and languages selector*  
+│   │   └── product-item/        # Individual service card*  
+│   ├── home/                    # Welcome page component*  
 │   ├── services/  
-│   │   └── total-budget.ts      *\# Core business logic and state*  
+│   │   └── total-budget.ts      # Core business logic and state*  
 │   ├── models/  
-│   │   ├── budget.ts            *\# Quote data model*  
-│   │   └── budget-product.ts    *\# Service data model*  
+│   │   ├── budget.ts            # Quote data model*  
+│   │   └── budget-product.ts    # Service data model*  
 │   ├── data/  
-│   │   └── budget-products.data.ts  *\# Available services*  
-│   ├── app.component.ts         *\# Root component*  
-│   ├── app.config.ts            *\# Application configuration*  
-│   └── app.routes.ts            *\# Routing configuration*  
-├── public/                      *\# Static assets*  
-└── index.html                   *\# Entry point*  
+│   │   └── budget-products.data.ts  # Available services*  
+│   ├── app.component.ts         # Root component*  
+│   ├── app.config.ts            # Application configuration*  
+│   └── app.routes.ts            # Routing configuration*  
+├── public/                      # Static assets*  
+└── index.html                   # Entry point*  
 ```
 
 ---
@@ -151,12 +151,12 @@ src/
 ### **1. Service Selection & Calculation**  
 - Choose from SEO (€300), Advertising (€400), and Web Development (€500)  
 - For web services, specify number of pages and languages  
-- Real-time total calculation: `Total \= Base Services \+ (Pages × Languages × €30)`
+- Real-time total calculation: `Total = Base Services + (Pages × Languages × €30)`
 
 ### **2. URL State Sharing**  
 When you select services, the URL updates automatically:  
 
-`/budget?seo\=true\&ads=false\&web=true\&pages=3\&languages=2`
+`/budget?seo=true&ads=false&web=true&pages=3&languages=2`
 
 Anyone with this URL will see the exact same configuration.
 
@@ -169,7 +169,7 @@ Anyone with this URL will see the exact same configuration.
 
 ---
 
-## ** Learning Outcomes**
+## **Learning Outcomes**
 
 This project demonstrates proficiency in:
 
