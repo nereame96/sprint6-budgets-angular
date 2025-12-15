@@ -1,16 +1,16 @@
 
 
-**README: Angular Budget Management System**
+# **README: Angular Budget Management System**
 
 A modern web application for creating, managing, and sharing service quotes built with Angular 21 and the latest framework features including Signals and Standalone Components.
 
 Live Demo : https://sprint6-budgets-angular-deploy.vercel.app/
 
-## ** Project Overview**
+## **Project Overview**
 
 This application enables users to create detailed service quotes by selecting from available services (SEO, Advertising, Web Development), calculating costs in real-time, and sharing configurations via unique URLs. Built as part of an IT Academy bootcamp sprint, it demonstrates modern Angular development practices and state management techniques.
 
-### ** Key Features**
+### **Key Features**
 
 * **Real-time Budget Calculation**: Instant price updates based on selected services and options  
 * **URL State Synchronization**: Share exact quote configurations via URL query parameters  
@@ -46,38 +46,44 @@ Ensure you have the following installed:
 * [npm](https://www.npmjs.com/) (comes with Node.js)  
 * [Angular CLI](https://angular.io/cli) (v21 or higher)
 
-bash
+```bash
 
-npm install \-g @angular/cli
+npm install -g @angular/cli
+```
 
 ### **Installation**
 
 1. **Clone the repository**
 
-bash  
+```bash  
   git clone https://github.com/nereame96/sprint6-budgets-angular.git
 
-   cd sprint6-budgets-angular
+  cd sprint6-budgets-angular
+   ```
 
 2. **Install dependencies**
 
-bash
+```bash
 
   npm install
+  ```
 
 3. **Start development server**
 
-bash
+```bash
 
-  ng serve \-o
+  ng serve -o
+  ```
 
 The application will open automatically at `http://localhost:4200/`
 
 ### **Build for Production**
 
-bash
+```bash
 
-ng build \--configuration production
+ng build --configuration production
+```
+
 
 Build artifacts will be stored in the `dist/` directory.
 
@@ -87,31 +93,31 @@ Build artifacts will be stored in the `dist/` directory.
 
 Run the complete test suite:
 
-bash  
+```bash  
 ng test  
-\`\`\`
+```
 
-*\#\#\# Test Coverage*
+### **Test Coverage**
 
-\- \*\*27 passing tests\*\* across 7 test files  
-\- Coverage includes:  
-  \- Component logic and rendering  
-  \- Service methods and calculations  
-  \- Form validation  
-  \- Routing and navigation
+- **27 passing tests** across 7 test files  
+- Coverage includes:  
+  - Component logic and rendering  
+  - Service methods and calculations  
+  - Form validation  
+  - Routing and navigation
 
-\---
+---
 
-*\#\# Demo*
+## **Demo**
 
-\!\[Budget Application Demo\](./public/budget.gif)
+![Budget Application Demo](./public/budget.gif)
 
-\*Create quotes, manage services, and share configurations seamlessly\*
+*Create quotes, manage services, and share configurations seamlessly*
 
-\---
+---
 
-*\#\#  Project Structure*  
-\`\`\`  
+## **Project Structure**  
+```  
 src/  
 ├── app/  
 │   ├── components/  
@@ -136,26 +142,25 @@ src/
 │   └── app.routes.ts            *\# Routing configuration*  
 ├── public/                      *\# Static assets*  
 └── index.html                   *\# Entry point*  
-\`\`\`
+```
 
-\---
+---
 
-*\#\#  Core Functionality*
+## **Core Functionality**
 
-*\#\#\# 1\. Service Selection & Calculation*  
-\- Choose from SEO (€300), Advertising (€400), and Web Development (€500)  
-\- For web services, specify number of pages and languages  
-\- Real-time total calculation: \`Total \= Base Services \+ (Pages × Languages × €30)\`
+### **1. Service Selection & Calculation**  
+- Choose from SEO (€300), Advertising (€400), and Web Development (€500)  
+- For web services, specify number of pages and languages  
+- Real-time total calculation: `Total \= Base Services \+ (Pages × Languages × €30)`
 
-*\#\#\# 2\. URL State Sharing*  
+### **2. URL State Sharing**  
 When you select services, the URL updates automatically:  
-\`\`\`
 
-/budget?seo\=true\&ads=false\&web=true\&pages=3\&languages=2
+`/budget?seo\=true\&ads=false\&web=true\&pages=3\&languages=2`
 
 Anyone with this URL will see the exact same configuration.
 
-### **3\. Quote Management**
+### **3. Quote Management**
 
 * Save quotes with client information (name, email, phone)  
 * Search quotes by client name  
@@ -179,7 +184,7 @@ This project demonstrates proficiency in:
 
 ---
 
-## ** Deployment**
+## **Deployment**
 
 The application is deployed on **Vercel** with continuous deployment from the main branch.
 
@@ -187,7 +192,7 @@ The application is deployed on **Vercel** with continuous deployment from the ma
 
 ---
 
-## ** Author**
+## **Author**
 
 **Nerea Medina Carrasco**
 
